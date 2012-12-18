@@ -1,15 +1,8 @@
-puppet-docsf
-============
+Devopera Configserver-firewall - Puppet
 
-Configserver-firewall puppet config
+Copyright (C) 2012 Lightenna Ltd
 
-Gist came from:
-https://gist.github.com/2772865
-
-Copyright and License
----------------------
-
-Copyright 2012 Inkling Systems, Inc.
+Devopera can be contacted at: inform@lightenna.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
