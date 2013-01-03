@@ -9,7 +9,7 @@ https://gist.github.com/2772865
 Copyright and License
 ---------------------
 
-Copyright 2012 Inkling Systems, Inc.
+Copyright (C) 2012 Lightenna Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
