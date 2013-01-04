@@ -1,10 +1,11 @@
 puppet-docsf
 ============
 
-Configserver-firewall puppet config
+Configserver-firewall and maldet puppet config
 
 Gist came from:
 https://gist.github.com/2772865
+https://github.com/apocas/puppet-cpanel
 
 Copyright and License
 ---------------------
