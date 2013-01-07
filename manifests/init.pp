@@ -1,4 +1,37 @@
-class docsf {
+class docsf (
+
+  # class arguments
+  # ---------------
+  # setup defaults
+
+  $user = 'csf',
+  $etcuser = 'root',
+  
+  # variables used for template substitution
+  
+  $testing = '0',
+  $tcp_in = '80,443,8139,15022',
+  $tcp_out = '22,25,80,443,8139',
+  $udp_in = '',
+  $udp_out = '123',
+  $syslog_check = '3600',
+  $lf_alert_to = 'admin@example.com',
+  $lf_alert_from = "lfd.csf.daemon@${::fqdn}",
+  $lf_dshield = '86400',
+  $lf_spamhaus = '86400',
+  $messenger = '1',
+  $messenger_user = 'csf',
+  $messenger_html_in = '80',
+  $messenger_text_in = '',
+  $logscanner = 1,
+  $logscanner_interval = 'daily',
+
+  # end of class arguments
+  # ----------------------
+  # begin class
+
+) {
+
   case $operatingsystem {
     centos, redhat: {
       package { 'perl':
@@ -46,6 +79,39 @@ class docsf {
       logoutput => false,
     }
 
+    # create a non-login user for the messenger service
+    user { 'create_user_csf':
+      name => $user,
+      shell => "/sbin/nologin",
+      require => Exec['install_csf'],
+      home => '/etc/csf',
+    }
+
+    # configure csf using augeas
+    file { 'configure_csf':
+      path => "/etc/csf/csf.conf",
+      content => template('docsf/csf.conf.erb'),
+      mode => 0600,
+      owner => $etcuser,
+      group => $etcuser,
+      require => [User['create_user_csf'], Exec['install_csf']],
+    }
+
+    # startup csf and lfd
+    service { 'start_csf':
+      name => 'csf',
+      enable => true,
+      ensure => running,
+      require => File['configure_csf'],
+    }
+    service { 'start_lfd':
+      name => 'lfd',
+      enable => true,
+      ensure => running,
+      require => File['configure_csf'],
+    }
+
+    # clean up
     exec { 'install_csf_cleanup':
       command => 'rm -rf /tmp/csf*',
       path  => '/bin/',
