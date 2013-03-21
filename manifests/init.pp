@@ -88,7 +88,7 @@ class docsf (
       home => '/etc/csf',
     }
 
-    # configure csf using augeas
+    # configure csf using template
     file { 'configure_csf':
       path => "/etc/csf/csf.conf",
       content => template('docsf/csf.conf.erb'),
@@ -97,6 +97,15 @@ class docsf (
       group => $etcuser,
       require => [User['create_user_csf'], Exec['install_csf']],
     }
+    file { 'configure_csf_pignore':
+      path => "/etc/csf/csf.pignore",
+      content => template('docsf/csf.pignore.erb'),
+      mode => 0600,
+      owner => $etcuser,
+      group => $etcuser,
+      require => [User['create_user_csf'], Exec['install_csf']],
+    }
+
 
     # startup csf and lfd
     service { 'start_csf':
