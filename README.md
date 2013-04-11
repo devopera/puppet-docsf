@@ -7,6 +7,13 @@ Gist came from:
 https://gist.github.com/2772865
 https://github.com/apocas/puppet-cpanel
 
+Changlog
+--------
+
+2013-04-11
+
+  * Added basic maldet configuration
+
 Copyright and License
 ---------------------
 

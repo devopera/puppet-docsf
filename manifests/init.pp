@@ -135,6 +135,13 @@ class docsf (
     cwd => "/tmp",
     command => "/usr/bin/wget -N http://www.rfxn.com/downloads/maldetect-current.tar.gz && tar -xzf maldetect-current.tar.gz && cd maldetect* && /bin/bash install.sh",
     creates => "/usr/local/maldetect"
+  }->
+  file { 'configure_maldet':
+    path => '/usr/local/maldetect/conf.maldet',
+    content => template('docsf/conf.maldet.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
   }
   
   # clean up tmp directory
