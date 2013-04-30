@@ -11,8 +11,8 @@ class docsf (
   
   $testing = '0',
   $tcp_in = '80,443,8139,15022',
-  # temporarily including 15422, remove when testbed deprecated
-  $tcp_out = '22,25,80,443,8140,8139,15022,15422',
+  # temporarily including 522 and 15422, remove when testbed/miata svn deprecated
+  $tcp_out = '22,25,80,443,8140,8139,15022,522,15422',
   $udp_in = '',
   $udp_out = '123',
   $syslog_check = '3600',
