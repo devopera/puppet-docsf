@@ -10,6 +10,10 @@ https://github.com/apocas/puppet-cpanel
 Changlog
 --------
 
+2013-05-09
+
+  * Added 21 to default outgoing ports for yum updates
+
 2013-04-11
 
   * Added basic maldet configuration
