@@ -81,47 +81,6 @@ class docsf (
       logoutput => false,
     }
 
-    # create a non-login user for the messenger service
-    user { 'create_user_csf':
-      name => $user,
-      shell => "/sbin/nologin",
-      require => Exec['install_csf'],
-      home => '/etc/csf',
-    }
-
-    # configure csf using template
-    file { 'configure_csf':
-      path => "/etc/csf/csf.conf",
-      content => template('docsf/csf.conf.erb'),
-      mode => 0600,
-      owner => $etcuser,
-      group => $etcuser,
-      require => [User['create_user_csf'], Exec['install_csf']],
-    }
-    file { 'configure_csf_pignore':
-      path => "/etc/csf/csf.pignore",
-      content => template('docsf/csf.pignore.erb'),
-      mode => 0600,
-      owner => $etcuser,
-      group => $etcuser,
-      require => [User['create_user_csf'], Exec['install_csf']],
-    }
-
-
-    # startup csf and lfd
-    service { 'start_csf':
-      name => 'csf',
-      enable => true,
-      ensure => running,
-      require => File['configure_csf'],
-    }
-    service { 'start_lfd':
-      name => 'lfd',
-      enable => true,
-      ensure => running,
-      require => File['configure_csf'],
-    }
-
     # clean up
     exec { 'install_csf_cleanup':
       command => 'rm -rf /tmp/csf*',
@@ -129,8 +88,47 @@ class docsf (
       require => Exec['install_csf'],
       logoutput => true,
     }
+
+    # create a non-login user for the messenger service
+    user { 'create_user_csf':
+      name => $user,
+      shell => "/sbin/nologin",
+      require => Exec['install_csf'],
+      before => File['configure_csf'],
+      home => '/etc/csf',
+    }
   }
-  
+
+  # configure csf using template
+  # everytime, not just during install
+  file { 'configure_csf':
+    path => "/etc/csf/csf.conf",
+    content => template('docsf/csf.conf.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
+  }->
+  file { 'configure_csf_pignore':
+    path => "/etc/csf/csf.pignore",
+    content => template('docsf/csf.pignore.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
+  }
+
+  # startup csf and lfd
+  service { 'start_csf':
+    name => 'csf',
+    enable => true,
+    ensure => running,
+    require => File['configure_csf'],
+  }->
+  service { 'start_lfd':
+    name => 'lfd',
+    enable => true,
+    ensure => running,
+  }
+
   # install malware detection
   exec { 'install_maldet':
     cwd => "/tmp",
