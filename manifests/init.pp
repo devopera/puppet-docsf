@@ -25,6 +25,11 @@ class docsf (
   $messenger_user = 'csf',
   $messenger_html_in = '80',
   $messenger_text_in = '',
+
+  # increase process tracking time from 1800 to 3600 by default
+  $pt_usertime = '3600',
+  
+  # run logscanner daily
   $logscanner = 1,
   $logscanner_interval = 'daily',
 
