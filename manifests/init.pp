@@ -40,7 +40,7 @@ class docsf (
 ) {
 
   case $operatingsystem {
-    centos, redhat: {
+    centos, redhat, fedora: {
       package { 'perl':
         name => ['perl', 'perl-libwww-perl', 'perl-Time-HiRes'],
         ensure => 'present',
