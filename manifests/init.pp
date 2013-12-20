@@ -41,14 +41,12 @@ class docsf (
 
   case $operatingsystem {
     centos, redhat, fedora: {
-      package { 'perl':
-        name => ['perl', 'perl-libwww-perl', 'perl-Time-HiRes'],
+      package { ['perl', 'perl-libwww-perl', 'perl-Time-HiRes'] :
         ensure => 'present',
       }
     }
     ubuntu, debian: {
-      package { 'perl':
-        name => ['perl', 'libwww-perl', 'libtime-hires-perl'],
+      package { ['perl', 'libwww-perl', 'libtime-hires-perl'] :
         ensure => 'present',
       }
     }
