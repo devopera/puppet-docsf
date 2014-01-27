@@ -10,6 +10,10 @@ https://github.com/apocas/puppet-cpanel
 Changlog
 --------
 
+2014-01-27
+
+  * Added vars to allow additions to csf.ignore and csf.pignore
+
 2013-05-09
 
   * Added 21 to default outgoing ports for yum updates
