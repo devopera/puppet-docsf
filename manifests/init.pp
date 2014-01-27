@@ -25,6 +25,8 @@ class docsf (
   $messenger_user = 'csf',
   $messenger_html_in = '80',
   $messenger_text_in = '',
+  $csf_ignore = {},
+  $csf_pignore = {},
 
   # increase process tracking time from 1800 to 3600 by default
   $pt_usertime = '3600',
@@ -110,13 +112,23 @@ class docsf (
     mode => 0600,
     owner => $etcuser,
     group => $etcuser,
-  }->
+    notify => [Service['start_csf'], Service['start_lfd']],
+  }
+  file { 'configure_csf_ignore':
+    path => "/etc/csf/csf.ignore",
+    content => template('docsf/csf.ignore.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
+    notify => [Service['start_csf'], Service['start_lfd']],
+  }
   file { 'configure_csf_pignore':
     path => "/etc/csf/csf.pignore",
     content => template('docsf/csf.pignore.erb'),
     mode => 0600,
     owner => $etcuser,
     group => $etcuser,
+    notify => [Service['start_csf'], Service['start_lfd']],
   }
 
   # startup csf and lfd
@@ -124,8 +136,7 @@ class docsf (
     name => 'csf',
     enable => true,
     ensure => running,
-    require => File['configure_csf'],
-  }->
+  }
   service { 'start_lfd':
     name => 'lfd',
     enable => true,

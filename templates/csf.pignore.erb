@@ -1,4 +1,7 @@
 ###############################################################################
+# This file is controlled by Puppet
+## DO NOT CHANGE THIS FILE DIRECTLY
+#
 # Copyright 2006-2012, Way to the Web Limited
 # URL: http://www.configserver.com
 # Email: sales@waytotheweb.com
@@ -28,6 +31,10 @@
 #
 # For more information see readme.txt
 
+#
+# Standard exclusions
+# (CSF)
+#
 exe:/usr/lib/courier-imap/bin/pop3d
 exe:/usr/lib/courier-imap/bin/imapd
 exe:/usr/sbin/pure-ftpd
@@ -44,7 +51,8 @@ exe:/usr/sbin/exim4
 exe:/sbin/ntpd
 
 #
-# Additional executables
+# Additional exclusions
+# (Devopera)
 #
 exe:/usr/libexec/postfix/master
 exe:/usr/libexec/postfix/pickup
@@ -64,3 +72,10 @@ exe:/usr/bin/ssh-agent
 exe:/usr/sbin/avahi-daemon
 exe:/usr/sbin/hald
 exe:/sbin/rpcbind
+
+#
+# Puppetted exclusions
+#
+<% @csf_pignore.each do |value| -%>
+<%= value %>
+<% end -%>
