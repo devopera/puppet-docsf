@@ -1,14 +1,18 @@
-puppet-docsf
-============
+devopera.com-docsf
+==================
 
-Configserver-firewall and maldet puppet config
+ConfigServer Firewall (csf) and Login Failure Daemon (lfd) are designed to protect online servers by providing an adaptive firewall and access/process monitoring service.  CSF in turn uses IPtables to actually implement the firewall rules.  This module also includes Linux Malware Detect (maldet) for detecting malware.
 
-Gist came from:
+Original Gist came from:
 https://gist.github.com/2772865
 https://github.com/apocas/puppet-cpanel
 
 Changlog
 --------
+
+2014-02-12
+
+  * Making available as a module on Puppet Forge
 
 2014-01-27
 
@@ -21,6 +25,27 @@ Changlog
 2013-04-11
 
   * Added basic maldet configuration
+
+Usage
+-----
+
+Setup CSF firewall with defaults
+
+  class { 'docsf': }
+
+Setup CSF firewall to allow in certain ports, alert to specific email and ignore scripted executables
+
+  class { 'docsf':
+    # allow web, ssh (on 15022), puppet, nrpe (on 5666)
+    tcp_in => "80,15022,8139,8140,5666",
+    lf_alert_to => 'me@example.com',
+    csf_pignore => ['exe:/usr/bin/rsync', 'exe:/usr/bin/svn', 'exe:/usr/sbin/nrpe'],
+  }
+
+Operating System support
+------------------------
+
+Tested with CentOS 6
 
 Copyright and License
 ---------------------
