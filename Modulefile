@@ -1,5 +1,5 @@
 name         'devopera-docsf'
-version      '0.9.2'
+version      '0.9.3'
 author       '(c) Alex Stanhope, Devopera.com'
 license      'Apache License, Version 2.0'
 project_page 'http://devopera.com/module/docsf'

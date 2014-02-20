@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2014-02-20
+
+  * Fixed minor order issue on configuration files csf_ignore and csf_pignore.conf
+
 2014-02-12
 
   * Making available as a module on Puppet Forge
