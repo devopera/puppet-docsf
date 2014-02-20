@@ -91,6 +91,7 @@ class docsf (
       command => 'rm -rf /tmp/csf*',
       path  => '/bin/',
       require => Exec['install_csf'],
+      before => File['configure_csf'],
       logoutput => true,
     }
 
@@ -121,6 +122,7 @@ class docsf (
     owner => $etcuser,
     group => $etcuser,
     notify => [Service['start_csf'], Service['start_lfd']],
+    require => [File['configure_csf']],
   }
   file { 'configure_csf_pignore':
     path => "/etc/csf/csf.pignore",
@@ -129,6 +131,7 @@ class docsf (
     owner => $etcuser,
     group => $etcuser,
     notify => [Service['start_csf'], Service['start_lfd']],
+    require => [File['configure_csf']],
   }
 
   # startup csf and lfd
