@@ -11,9 +11,9 @@ class docsf (
   
   $testing = '0',
   $tcp_in = '80,443,8139,15022',
-  # ftp (21) for yum, ssh (22), smtp (25, 587), web (80, 443), squid proxy (3128), puppet (8139,8140), non-std ssh (15022)
+  # ftp (21) for yum, ssh (22), smtp (25, 587), web (80, 443), squid proxy (3128), mysql client (3306), puppet (8139,8140), non-std ssh (15022)
   # temporarily including 522, remove when miata svn deprecated
-  $tcp_out = '21,22,25,80,443,587,3128,8139,8140,15022,522',
+  $tcp_out = '21,22,25,80,443,587,3128,3306,8139,8140,15022,522',
   $udp_in = '',
   $udp_out = '123',
   $syslog_check = '3600',
