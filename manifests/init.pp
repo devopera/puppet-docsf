@@ -30,6 +30,7 @@ class docsf (
 
   # increase process tracking time from 1800 to 3600 by default
   $pt_usertime = '3600',
+  $pt_usermem = '250',
   
   # run logscanner daily
   $logscanner = 1,
