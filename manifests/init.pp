@@ -35,12 +35,13 @@ class docsf (
   # run logscanner daily
   $logscanner = 1,
   $logscanner_interval = 'daily',
+  $lf_log_syslog = $docsf::params::lf_log_syslog,
 
   # end of class arguments
   # ----------------------
   # begin class
 
-) {
+) inherits docsf::params {
 
   case $operatingsystem {
     centos, redhat, fedora: {
