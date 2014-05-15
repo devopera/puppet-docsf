@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2014-05-14
+
+  * Added variables with sensible defaults for CONNLIMIT and PORTFLOOD directives to manage DOS attacks
+
 2014-02-20
 
   * Fixed minor order issue on configuration files csf_ignore and csf_pignore.conf
