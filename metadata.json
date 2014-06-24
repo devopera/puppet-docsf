@@ -1,0 +1,14 @@
+{
+  "name": "devopera-docsf",
+  "version": "0.9.4",
+  "author": "(c) Alex Stanhope, Devopera.com",
+  "summary": "ConfigServer Firewall and Login Failure Daemon installation and configuration module",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/devopera/puppet-docsf",
+  "project_page": "http://devopera.com/module/docsf",
+  "description": "ConfigServer Firewall (csf) and Login Failure Daemon (lfd)\nare designed to protect online servers by providing an adaptive firewall and access/process monitoring service.\nCSF in turn uses IPtables to actually implement the firewall rules.  This module also includes Linux Malware Detect\n(maldet) for detecting malware.",
+  "issues_url": "https://github.com/devopera/puppet-docsf/issues",
+  "dependencies": [
+  
+  ]
+}
