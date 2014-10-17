@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2014-10-17
+
+  * Made more PT_ options configurable to fine-tune volume of email notifications
+
 2014-09-19
 
   * Sharpened up csf.pignore list after CentOS changed some daemon names (e.g. haldaemon)
