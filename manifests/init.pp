@@ -35,6 +35,8 @@ class docsf (
   $portflood = '22;tcp;10;60,80;tcp;50;5',
 
   # increase process tracking time from 1800 to 3600 by default
+  $pt_limit = '3600',
+  $pt_userproc = '30',
   $pt_usertime = '3600',
   $pt_usermem = '250',
   

@@ -1041,7 +1041,7 @@ CT_PORTS = ""
 # is inspected. If you set this time too low, then you will likely trigger
 # false-positives with CGI or PHP scripts.
 # Set the value to 0 to disable this feature
-PT_LIMIT = "60"
+PT_LIMIT = "<%= pt_limit %>"
 
 # How frequently processes are checked in seconds
 PT_INTERVAL = "60"
@@ -1090,7 +1090,7 @@ PT_DELETED_ACTION = ""
 # ignored
 #
 # Set to 0 to disable this feature
-PT_USERPROC = "10"
+PT_USERPROC = "<%= pt_userproc %>"
 
 # This User Process Tracking option sends an alert if any linux user process
 # exceeds the memory usage set (MB). To ignore specific processes or users use
