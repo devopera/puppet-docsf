@@ -68,7 +68,6 @@ exe:/usr/sbin/hald
 exe:/sbin/rpcbind
 exe:/usr/sbin/nrpe
 # CentOS
-exe:/usr/libexec/mysqld
 exe:/usr/sbin/httpd
 exe:/usr/libexec/postfix/master
 exe:/usr/libexec/postfix/pickup
@@ -90,22 +89,32 @@ exe:/usr/bin/gnome-terminal
 exe:/usr/bin/gnome-keyring-daemon
 exe:/usr/bin/gnome-panel
 exe:/usr/bin/gnome-volume-control-applet
+exe:/usr/bin/gnome-power-manager
+exe:/usr/libexec/bonobo-activation-server
+exe:/usr/libexec/clock-applet
 exe:/usr/libexec/gnome-settings-daemon
 exe:/usr/libexec/gvfs-gdu-volume-monitor
 exe:/usr/libexec/gconfd-2
 exe:/usr/libexec/trashapplet
-exe:/usr/libexec/notification-area-applet
 exe:/usr/libexec/gdm-user-switch-applet
+exe:/usr/libexec/notification-area-applet
+exe:/usr/libexec/notification-daemon
 exe:/usr/libexec/polkit-gnome-authentication-agent-1
-exe:/usr/libexec/clock-applet
 exe:/usr/libexec/rtkit-daemon
 exe:/usr/libexec/wnck-applet
-exe:/usr/libexec/bonobo-activation-server
 exe:/usr/libexec/pulse/gconf-helper
 pexe:/usr/libexec/gvfsd.*
-pexe:/usr/lib/virtualbox/VBox.*
 exe:/usr/lib64/vte/gnome-pty-helper
 exe:/usr/sbin/restorecond
+# browsers
+pexe:/opt/google/chrome/chrome.*
+exe:/usr/bin/firefox
+# virtualisation
+pexe:/usr/lib/virtualbox/VBox.*
+exe:/usr/lib/vmware/bin/appLoader
+# databases
+exe:/usr/libexec/mysqld
+exe:/usr/pgsql-9.2/bin/psql
 
 # Ubuntu 
 exe:/usr/sbin/mysqld

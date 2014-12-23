@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2014-12-23
+
+  * Added csf.fignore to handle misc files in /tmp folder
+
 2014-12-17
 
   * Tailored csf.pignore to ignore X server tasks under CentOS/GNOME

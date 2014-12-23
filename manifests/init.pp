@@ -27,6 +27,7 @@ class docsf (
   $messenger_text_in = '',
   $csf_ignore = {},
   $csf_pignore = {},
+  $csf_fignore = {},
   # concurrent connection limit: Firefox makes up to 15 legit connections, allow 5 max SSH
   $connlimit = '22;5,80;20',
   # sequent connection limit: block a certain number of requests within a certain timeframe
@@ -143,7 +144,15 @@ class docsf (
     notify => [Service['start_csf'], Service['start_lfd']],
     require => [File['configure_csf']],
   }
-
+  file { 'configure_csf_fignore':
+    path => "/etc/csf/csf.fignore",
+    content => template('docsf/csf.fignore.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
+    notify => [Service['start_csf'], Service['start_lfd']],
+    require => [File['configure_csf']],
+  }
   # startup csf and lfd
   service { 'start_csf':
     name => 'csf',
