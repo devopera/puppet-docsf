@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2014-12-30
+
+  * Made module compatible with Ubuntu 14.04
+
 2014-12-23
 
   * Added csf.fignore to handle misc files in /tmp folder
@@ -67,7 +71,7 @@ Setup CSF firewall to allow in certain ports, alert to specific email and ignore
 Operating System support
 ------------------------
 
-Tested with CentOS 6
+Tested with CentOS 6, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS
 
 Copyright and License
 ---------------------

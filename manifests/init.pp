@@ -106,10 +106,20 @@ class docsf (
       logoutput => true,
     }
 
+    # OS-specific path to nologin
+    case $operatingsystem {
+      ubuntu: {
+        $path_nologin = '/usr/sbin/nologin'
+      }
+      centos, redhat, fedora, default: {
+        $path_nologin = '/sbin/nologin'
+      }
+    }
+
     # create a non-login user for the messenger service
     user { 'create_user_csf':
       name => $user,
-      shell => "/sbin/nologin",
+      shell => $path_nologin,
       require => Exec['install_csf'],
       before => File['configure_csf'],
       home => '/etc/csf',
