@@ -106,16 +106,6 @@ exe:/usr/libexec/pulse/gconf-helper
 pexe:/usr/libexec/gvfsd.*
 exe:/usr/lib64/vte/gnome-pty-helper
 exe:/usr/sbin/restorecond
-# browsers
-pexe:/opt/google/chrome/chrome.*
-exe:/usr/bin/firefox
-# virtualisation
-pexe:/usr/lib/virtualbox/VBox.*
-exe:/usr/lib/vmware/bin/appLoader
-# databases
-exe:/usr/libexec/mysqld
-exe:/usr/pgsql-9.2/bin/psql
-
 # Ubuntu 
 exe:/usr/sbin/mysqld
 exe:/usr/sbin/apache2
@@ -128,6 +118,43 @@ exe:/usr/local/zend/bin/zsd
 exe:/usr/bin/whoopsie
 exe:/usr/sbin/atd
 exe:/usr/sbin/rsyslogd
+# Ubuntu xfce desktop
+exe:/usr/sbin/kerneloops
+exe:/usr/sbin/unity-greeter
+exe:/usr/lib/unity-settings-daemon/unity-settings-daemon
+exe:/usr/lib/accountsservice/accounts-daemon
+exe:/usr/lib/at-spi2-core/at-spi-bus-launcher
+exe:/usr/lib/at-spi2-core/at-spi2-registryd
+exe:/usr/lib/colord/colord
+exe:/usr/lib/dconf/dconf-service
+exe:/usr/lib/gvfs/gvfsd
+pexe:/usr/lib/gvfs/gvfs-.*
+exe:/usr/lib/libvte-2.90-9/gnome-pty-helper
+exe:/usr/lib/rtkit/rtkit-daemon
+exe:/usr/lib/x86_64-linux-gnu/indicator-keyboard-service
+exe:/usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+exe:/usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+exe:/usr/lib/x86_64-linux-gnu/xfce4.*
+exe:/usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+exe:/usr/lib/x86_64-linux-gnu/notify-osd
+exe:/usr/lib/x86_64-linux-gnu/zeitgeist-fts
+exe:/usr/bin/nm-applet
+exe:/usr/bin/thunar
+pexe:/usr/bin/xfce4-.*
+exe:/usr/bin/xfwm4
+exe:/usr/bin/xscreensaver
+exe:/usr/bin/Xtightvnc
+exe:/usr/bin/zeitgeist-datahub
+# browsers
+pexe:/opt/google/chrome/chrome.*
+exe:/usr/bin/google-chrome
+exe:/usr/bin/firefox
+# virtualisation
+pexe:/usr/lib/virtualbox/VBox.*
+exe:/usr/lib/vmware/bin/appLoader
+# databases
+exe:/usr/libexec/mysqld
+exe:/usr/pgsql-9.2/bin/psql
 
 #
 # Puppetted exclusions
