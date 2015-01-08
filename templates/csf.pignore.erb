@@ -68,6 +68,7 @@ exe:/usr/sbin/hald
 exe:/sbin/rpcbind
 exe:/usr/sbin/nrpe
 # CentOS
+exe:/sbin/rpc.statd
 exe:/usr/sbin/httpd
 exe:/usr/libexec/postfix/master
 exe:/usr/libexec/postfix/pickup
@@ -106,7 +107,7 @@ exe:/usr/libexec/pulse/gconf-helper
 pexe:/usr/libexec/gvfsd.*
 exe:/usr/lib64/vte/gnome-pty-helper
 exe:/usr/sbin/restorecond
-# Ubuntu 
+# Ubuntu
 exe:/usr/sbin/mysqld
 exe:/usr/sbin/apache2
 exe:/usr/lib/apache2/mpm-prefork/apache2
@@ -127,34 +128,51 @@ exe:/usr/lib/at-spi2-core/at-spi-bus-launcher
 exe:/usr/lib/at-spi2-core/at-spi2-registryd
 exe:/usr/lib/colord/colord
 exe:/usr/lib/dconf/dconf-service
-exe:/usr/lib/gvfs/gvfsd
-pexe:/usr/lib/gvfs/gvfs-.*
+pexe:/usr/lib/gvfs/gvfsd.*
+pexe:/usr/lib/gvfs/gvfs.*
 exe:/usr/lib/libvte-2.90-9/gnome-pty-helper
+exe:/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exe:/usr/lib/rtkit/rtkit-daemon
-exe:/usr/lib/x86_64-linux-gnu/indicator-keyboard-service
-exe:/usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
 exe:/usr/lib/x86_64-linux-gnu/gconf/gconfd-2
-exe:/usr/lib/x86_64-linux-gnu/xfce4.*
+pexe:/usr/lib/x86_64-linux-gnu/indicator-.*
+pexe:/usr/lib/x86_64-linux-gnu/xfce4.*
 exe:/usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
 exe:/usr/lib/x86_64-linux-gnu/notify-osd
 exe:/usr/lib/x86_64-linux-gnu/zeitgeist-fts
 exe:/usr/bin/nm-applet
 exe:/usr/bin/thunar
+exe:/usr/bin/update-notifier
+exe:/usr/bin/Xvnc4
+exe:/usr/bin/xfdesktop
+exe:/usr/bin/xfsettingsd
 pexe:/usr/bin/xfce4-.*
 exe:/usr/bin/xfwm4
 exe:/usr/bin/xscreensaver
 exe:/usr/bin/Xtightvnc
-exe:/usr/bin/zeitgeist-datahub
+pexe:/usr/bin/zeitgeist-.*
+pcmd:/bin/sh /usr/lib/lightdm/lightdm-greeter-session /usr/sbin/unity-greeter
+pcmd:/bin/sh /etc/xdg/xfce4/xinitrc -- /etc/X11/xinit/xserverrc
+pcmd:/usr/bin/python /usr/share/system-config-printer/applet.py
+pcmd:/usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
 # browsers
 pexe:/opt/google/chrome/chrome.*
 exe:/usr/bin/google-chrome
 exe:/usr/bin/firefox
+# editors
+exe:/opt/Sublime Text 2/sublime_text
 # virtualisation
-pexe:/usr/lib/virtualbox/VBox.*
+pexe:/usr/lib/virtualbox/V.*
 exe:/usr/lib/vmware/bin/appLoader
 # databases
 exe:/usr/libexec/mysqld
 exe:/usr/pgsql-9.2/bin/psql
+# nagios, puppetdb and puppet master/server
+exe:/usr/sbin/nagios
+pcmd:/usr/bin/java .* /usr/share/puppetserver/puppet-server-release.jar .* -b /etc/puppetserver/bootstrap.cfg
+pcmd:/usr/lib/jvm/jre.* /usr/share/puppetdb/puppetdb.jar .* -c /etc/puppetdb/conf.d
+# version control
+exe:/usr/lib/git-core/git
+exe:/usr/libexec/git-core/git-merge
 
 #
 # Puppetted exclusions

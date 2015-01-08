@@ -9,5 +9,7 @@ class docsf::params {
     }
   }
 
+  $partial_tcp_in = '/etc/csf/csf_partial_tcp_in.conf'
+
 }
 

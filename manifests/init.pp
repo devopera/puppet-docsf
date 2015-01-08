@@ -126,6 +126,13 @@ class docsf (
     }
   }
 
+  # setup TCP_IN container so docommon can realise all the virtual fireport resources into it
+  concat{ "${::docsf::params::partial_tcp_in}" :
+    owner => root,
+    group => root,
+    mode  => '0644',
+  }
+
   # configure csf using template
   # everytime, not just during install
   file { 'configure_csf':
