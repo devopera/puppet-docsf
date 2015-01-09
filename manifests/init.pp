@@ -132,6 +132,12 @@ class docsf (
     group => root,
     mode  => '0644',
   }
+  # put at least one fragment into file
+  concat::fragment{ "docsf_partial_tcp_in_firstfrag" :
+    target  => $docsf::params::partial_tcp_in,
+    content => 'TCP_IN = "',
+    order => 0,
+  }
 
   # configure csf using template
   # everytime, not just during install
