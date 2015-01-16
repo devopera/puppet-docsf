@@ -10,17 +10,18 @@ class docsf (
   # variables used for template substitution
   
   $testing = '0',
-  $tcp_in = '80,443,8139,15022',
-  # ftp (21) for yum, ssh (22), smtp (25, 2525, 587), web (80, 443), squid proxy (3128), mysql client (3306), puppet (8139,8140), non-std ssh (15022), nrpe (15666), elasticsearch (9200,9300:9400)
+  $tcp_in = '80,443,15022',
+  # ftp (21) for yum, ssh (22), smtp (25, 2525, 587), web (80, 443), squid proxy (3128), mysql client (3306), puppet (8139,8140), puppetdb (8081), non-std ssh (15022), nrpe (15666), elasticsearch (9200,9300:9400)
   # temporarily including 522, remove when miata svn deprecated
-  $tcp_out = '21,22,25,80,443,587,2525,3128,3306,8139,8140,15022,522,15666,9200,9300:9400',
+  $tcp_out = '21,22,25,80,443,587,2525,3128,3306,8139,8140,8081,15022,522,15666,9200,9300:9400',
   $udp_in = '',
   $udp_out = '123',
   $syslog_check = '3600',
   $lf_alert_to = 'admin@example.com',
   $lf_alert_from = "lfd.csf.daemon@${::fqdn}",
-  $lf_dshield = '86400',
-  $lf_spamhaus = '86400',
+  # deprecated in new version of config file
+  # $lf_dshield = '86400',
+  # $lf_spamhaus = '86400',
   $messenger = '1',
   $messenger_user = 'csf',
   $messenger_html_in = '80',

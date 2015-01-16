@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2015-01-16
+
+  * Latest version of csf.conf from version 7.58
+
 2014-12-30
 
   * Made module compatible with Ubuntu 14.04
