@@ -53,15 +53,28 @@ class docsf (
 
 ) inherits docsf::params {
 
+  if ! defined(Package['perl']) {
+    package { 'perl' : ensure => 'present', }      
+  }
   case $operatingsystem {
     centos, redhat, fedora: {
-      package { ['perl', 'perl-libwww-perl', 'perl-Time-HiRes'] :
-        ensure => 'present',
+      if ! defined(Package['perl-libwww-perl']) {
+        package { 'perl-libwww-perl' : ensure => 'present', }
+      }
+      if ! defined(Package['perl-Time-HiRes']) {
+        package { 'perl-Time-HiRes' : ensure => 'present', }
+      }
+      # csf upgrades itself using perl's SSL lib
+      if ! defined(Package['perl-Crypt-SSLeay']) {
+        package { 'perl-Crypt-SSLeay' : ensure => 'present', }
       }
     }
     ubuntu, debian: {
-      package { ['perl', 'libwww-perl', 'libtime-hires-perl'] :
-        ensure => 'present',
+      if ! defined(Package['libwww-perl']) {
+        package { 'libwww-perl' : ensure => 'present', }
+      }
+      if ! defined(Package['libtime-hires-perl']) {
+        package { 'libtime-hires-perl' : ensure => 'present', }
       }
     }
   }
