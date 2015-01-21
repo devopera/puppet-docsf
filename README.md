@@ -8,9 +8,9 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
-2015-01-16
+2015-01-21
 
-  * Latest version of csf.conf from version 7.58
+  * Latest version of csf.conf from version 7.58; fixed missing HTTPS perl deps
 
 2014-12-30
 
