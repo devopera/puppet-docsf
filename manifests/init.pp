@@ -79,19 +79,12 @@ class docsf (
     }
   }
 
-  exec { 'enter-class-csf':
-    command => "echo ConfigServer initially installed? ${configserver_firewall}",
-    path  => '/bin',
-    logoutput => true,
-  }
-  
   # install configserver firewall
   if $configserver_firewall == 'false' {
     exec { 'download_csf':
       command => 'wget http://www.configserver.com/free/csf.tgz -O /tmp/csf.tgz',
       path  => '/usr/bin',
       creates => '/tmp/csf.tgz',
-      logoutput => true,
     }
 
     exec { 'unzip_csf':
@@ -99,7 +92,6 @@ class docsf (
       path  => '/bin/',
       creates => '/tmp/csf/',
       require => Exec['download_csf'],
-      logoutput => true,
     }
 
     exec { 'install_csf':
@@ -117,7 +109,6 @@ class docsf (
       path  => '/bin/',
       require => Exec['install_csf'],
       before => File['configure_csf'],
-      logoutput => true,
     }
 
     # OS-specific path to nologin
@@ -218,8 +209,9 @@ class docsf (
   
   # clean up tmp directory
   exec { 'install_maldet_cleanup':
-    path  => '/bin',
+    path  => '/bin:/sbin:/usr/bin:/usr/sbin',
     command => 'rm -rf /tmp/maldetect*',
+    onlyif => 'test -d /tmp/maldetect*',
     require => Exec['install_maldet'],
   }
 }
