@@ -170,6 +170,7 @@ exe:/usr/libexec/mysqld
 exe:/usr/pgsql-9.2/bin/psql
 # nagios, puppetdb and puppet master/server
 exe:/usr/sbin/nagios
+cmd:/usr/bin/ruby /usr/bin/puppet master
 pcmd:/usr/bin/java .* /usr/share/puppetserver/puppet-server-release.jar .* -b /etc/puppetserver/bootstrap.cfg
 pcmd:/usr/lib/jvm/jre.* /usr/share/puppetdb/puppetdb.jar .* -c /etc/puppetdb/conf.d
 # version control
