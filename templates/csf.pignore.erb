@@ -70,11 +70,8 @@ exe:/usr/sbin/nrpe
 # CentOS
 exe:/sbin/rpc.statd
 exe:/usr/sbin/httpd
-exe:/usr/libexec/postfix/master
-exe:/usr/libexec/postfix/pickup
-exe:/usr/libexec/postfix/qmgr
-exe:/usr/libexec/postfix/tlsmgr
 exe:/usr/libexec/hald-addon-acpi
+pexe:/usr/libexec/postfix/.*
 # CentOS GNOME desktop
 exe:/usr/bin/Xvnc
 exe:/usr/bin/metacity
@@ -111,10 +108,7 @@ exe:/usr/sbin/restorecond
 exe:/usr/sbin/mysqld
 exe:/usr/sbin/apache2
 exe:/usr/lib/apache2/mpm-prefork/apache2
-exe:/usr/lib/postfix/master
-exe:/usr/lib/postfix/pickup
-exe:/usr/lib/postfix/qmgr
-exe:/usr/lib/postfix/tlsmgr
+exe:/usr/lib/postfix/.*
 exe:/usr/local/zend/bin/zsd
 exe:/usr/bin/whoopsie
 exe:/usr/sbin/atd
@@ -123,6 +117,7 @@ exe:/usr/sbin/rsyslogd
 exe:/usr/sbin/kerneloops
 exe:/usr/sbin/unity-greeter
 exe:/usr/lib/unity-settings-daemon/unity-settings-daemon
+exe:/usr/lib/libunity-webapps/unity-webapps-service
 exe:/usr/lib/accountsservice/accounts-daemon
 exe:/usr/lib/at-spi2-core/at-spi-bus-launcher
 exe:/usr/lib/at-spi2-core/at-spi2-registryd
@@ -165,6 +160,7 @@ exe:/opt/Sublime Text 2/sublime_text
 # virtualisation
 pexe:/usr/lib/virtualbox/V.*
 exe:/usr/lib/vmware/bin/appLoader
+exe:/usr/lib/vmware/bin/vmware-vmx
 # databases
 exe:/usr/libexec/mysqld
 exe:/usr/pgsql-9.2/bin/psql
