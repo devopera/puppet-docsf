@@ -8,6 +8,10 @@ Original Gist came from https://gist.github.com/2772865 and https://github.com/a
 Changlog
 --------
 
+2015-02-18
+
+  * Added TCP_IN substitution of dynamically realised docommon::fireports
+
 2015-01-21
 
   * Latest version of csf.conf from version 7.58; fixed missing HTTPS perl deps

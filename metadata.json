@@ -1,6 +1,6 @@
 {
   "name": "devopera-docsf",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "author": "(c) Alex Stanhope, Devopera.com",
   "summary": "ConfigServer Firewall and Login Failure Daemon installation and configuration module",
   "license": "Apache License, Version 2.0",
