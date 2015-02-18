@@ -24,7 +24,7 @@ class docsf::preinit (
   }
   concat::fragment{ "docsf_partial_tcp_in_finalfrag" :
     target  => $docsf::params::partial_tcp_in,
-    content => '"',
+    content => "\"\n",
     order => 99,
   }
 
