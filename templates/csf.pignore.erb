@@ -67,11 +67,13 @@ exe:/usr/sbin/avahi-daemon
 exe:/usr/sbin/hald
 exe:/sbin/rpcbind
 exe:/usr/sbin/nrpe
-# CentOS
+# Web/message servers
 exe:/sbin/rpc.statd
 exe:/usr/sbin/httpd
 exe:/usr/libexec/hald-addon-acpi
 pexe:/usr/libexec/postfix/.*
+exe:/usr/bin/redis-server
+exe:/usr/sbin/nginx
 # CentOS GNOME desktop
 exe:/usr/bin/Xvnc
 exe:/usr/bin/metacity
@@ -108,7 +110,7 @@ exe:/usr/sbin/restorecond
 exe:/usr/sbin/mysqld
 exe:/usr/sbin/apache2
 exe:/usr/lib/apache2/mpm-prefork/apache2
-exe:/usr/lib/postfix/.*
+pexe:/usr/lib/postfix/.*
 exe:/usr/local/zend/bin/zsd
 exe:/usr/bin/whoopsie
 exe:/usr/sbin/atd
@@ -126,7 +128,7 @@ exe:/usr/lib/dconf/dconf-service
 pexe:/usr/lib/gvfs/gvfsd.*
 pexe:/usr/lib/gvfs/gvfs.*
 pexe:/usr/lib/ibus/ibus-.*
-exe:/usr/lib/libvte-2.90-9/gnome-pty-helper
+pexe:/usr/lib/libvte.*/gnome-pty-helper
 exe:/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exe:/usr/lib/rtkit/rtkit-daemon
 exe:/usr/lib/x86_64-linux-gnu/gconf/gconfd-2
@@ -139,6 +141,7 @@ exe:/usr/bin/ibus-daemon
 exe:/usr/bin/nm-applet
 exe:/usr/bin/thunar
 exe:/usr/bin/update-notifier
+exe:/usr/bin/vnc4config
 exe:/usr/bin/Xvnc4
 exe:/usr/bin/xfdesktop
 exe:/usr/bin/xfsettingsd
@@ -163,7 +166,8 @@ exe:/usr/lib/vmware/bin/appLoader
 exe:/usr/lib/vmware/bin/vmware-vmx
 # databases
 exe:/usr/libexec/mysqld
-exe:/usr/pgsql-9.2/bin/psql
+pexe:/usr/pgsql-9\../bin/psql
+pexe:/usr/lib/postgresql/9\../bin/postgres
 # nagios, puppetdb and puppet master/server
 exe:/usr/sbin/nagios
 cmd:/usr/bin/ruby /usr/bin/puppet master
