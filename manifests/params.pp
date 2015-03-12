@@ -9,7 +9,10 @@ class docsf::params {
     }
   }
 
-  $partial_tcp_in = '/etc/csf/csf_partial_tcp_in.conf'
+  $tmp_dir = '/etc/puppet/tmp'
+
+  # use notifier dir as /etc/csf may not exist yet
+  $partial_tcp_in = "${tmp_dir}/csf_partial_tcp_in.conf"
 
 }
 

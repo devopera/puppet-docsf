@@ -5,8 +5,8 @@ class docsf::postinit (
   # setup defaults
 
   $match = 'TCP_IN = .*',
-  $tmp_dir = '/etc/puppet/tmp',
-  $file_replace = '/etc/csf/csf_partial_tcp_in.conf',
+  $tmp_dir = $docsf::params::tmp_dir,
+  $file_replace = $docsf::params::partial_tcp_in,
   $file_target = '/etc/csf/csf.conf',
   $min_size = 10,
 
