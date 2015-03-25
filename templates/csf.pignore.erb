@@ -154,12 +154,14 @@ pcmd:/bin/sh /usr/lib/lightdm/lightdm-greeter-session /usr/sbin/unity-greeter
 pcmd:/bin/sh /etc/xdg/xfce4/xinitrc -- /etc/X11/xinit/xserverrc
 pcmd:/usr/bin/python /usr/share/system-config-printer/applet.py
 pcmd:/usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
+# CSF itself (v7.65)
+cmd: unicorn master -E production -c config/unicorn.conf.rb
+pcmd: unicorn worker\[.\] -E production -c config/unicorn\.conf\.rb
+cmd: /bin/bash config/unicorn_launcher -E production -c config/unicorn.conf.rb
 # browsers
 pexe:/opt/google/chrome.*
 exe:/usr/bin/google-chrome
 exe:/usr/bin/firefox
-# editors
-exe:/opt/Sublime Text 2/sublime_text
 # virtualisation
 pexe:/usr/lib/virtualbox/V.*
 exe:/usr/lib/vmware/bin/appLoader
