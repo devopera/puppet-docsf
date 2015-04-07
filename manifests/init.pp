@@ -26,6 +26,7 @@ class docsf (
   $messenger_user = 'csf',
   $messenger_html_in = '80',
   $messenger_text_in = '',
+  $csf_allow = {},
   $csf_ignore = {},
   $csf_pignore = {},
   $csf_fignore = {},
@@ -156,6 +157,15 @@ class docsf (
     owner => $etcuser,
     group => $etcuser,
     notify => [Service['start_csf'], Service['start_lfd']],
+  }
+  file { 'configure_csf_allow':
+    path => "/etc/csf/csf.allow",
+    content => template('docsf/csf.allow.erb'),
+    mode => 0600,
+    owner => $etcuser,
+    group => $etcuser,
+    notify => [Service['start_csf'], Service['start_lfd']],
+    require => [File['configure_csf']],
   }
   file { 'configure_csf_ignore':
     path => "/etc/csf/csf.ignore",
