@@ -155,9 +155,9 @@ pcmd:/bin/sh /etc/xdg/xfce4/xinitrc -- /etc/X11/xinit/xserverrc
 pcmd:/usr/bin/python /usr/share/system-config-printer/applet.py
 pcmd:/usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
 # CSF itself (v7.65)
-cmd: unicorn master -E production -c config/unicorn.conf.rb
-pcmd: unicorn worker\[.\] -E production -c config/unicorn\.conf\.rb
-cmd: /bin/bash config/unicorn_launcher -E production -c config/unicorn.conf.rb
+cmd:unicorn master -E production -c config/unicorn.conf.rb
+pcmd:unicorn worker\[.\] -E production -c config/unicorn\.conf\.rb
+cmd:/bin/bash config/unicorn_launcher -E production -c config/unicorn.conf.rb
 # browsers
 pexe:/opt/google/chrome.*
 exe:/usr/bin/google-chrome
