@@ -54,6 +54,7 @@ exe:/sbin/ntpd
 # Additional exclusions
 # (Devopera)
 #
+exe:/bin/cat
 exe:/usr/bin/memcached
 exe:/usr/local/zend/gui/lighttpd/sbin/php
 exe:/usr/local/zend/gui/lighttpd/sbin/lighttpd
@@ -131,6 +132,7 @@ pexe:/usr/lib/ibus/ibus-.*
 pexe:/usr/lib/libvte.*/gnome-pty-helper
 exe:/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exe:/usr/lib/rtkit/rtkit-daemon
+exe:/usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
 exe:/usr/lib/x86_64-linux-gnu/gconf/gconfd-2
 exe:/usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
 exe:/usr/lib/x86_64-linux-gnu/notify-osd
@@ -140,6 +142,7 @@ pexe:/usr/lib/x86_64-linux-gnu/xfce4.*
 exe:/usr/bin/ibus-daemon
 exe:/usr/bin/nm-applet
 cmd:/usr/bin/python3 /usr/share/apport/apport-gtk
+exe:/usr/bin/remmina
 exe:/usr/bin/thunar
 exe:/usr/bin/update-notifier
 exe:/usr/bin/vnc4config
@@ -170,6 +173,7 @@ exe:/usr/lib/vmware/bin/vmware-vmx
 # databases
 exe:/usr/libexec/mysqld
 pexe:/usr/pgsql-9\../bin/psql
+pexe:/usr/pgsql-9\../bin/postgres
 pexe:/usr/lib/postgresql/9\../bin/postgres
 # nagios, puppetdb and puppet master/server
 exe:/usr/sbin/nagios
