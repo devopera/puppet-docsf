@@ -176,7 +176,7 @@ pexe:/usr/pgsql-9\../bin/psql
 pexe:/usr/pgsql-9\../bin/postgres
 pexe:/usr/lib/postgresql/9\../bin/postgres
 # nagios, puppetdb and puppet master/server
-exe:/usr/sbin/nagios
+pexe:/usr/sbin/nagios.*
 cmd:/usr/bin/ruby /usr/bin/puppet master
 pcmd:/usr/bin/java .* /usr/share/puppetserver/puppet-server-release.jar .* -b /etc/puppetserver/bootstrap.cfg
 pcmd:/usr/lib/jvm/jre.* /usr/share/puppetdb/puppetdb.jar .* -c /etc/puppetdb/conf.d
