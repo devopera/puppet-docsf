@@ -28,14 +28,14 @@ class docsf::postinit (
   # display the status of the TCP_IN for csf.conf
   exec { 'docsf_postinit_sub_readback' :
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
-    command => "cat /etc/csf/csf.conf | grep '^TCP_IN = ' | awk ' { print \"'>>>>>>>>>>> \"\$0\"${postamble}\"; } '",
+    command => "cat /etc/csf/csf.conf | grep '^TCP_IN = ' | awk ' { print \">>>>>>>>>>> \"\$0\"${postamble}\"; } '",
     logoutput => true,
   }
 
   # dump substitution out to console for double-checking
   exec { 'docsf_postinit_sub_display' :
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
-    command => "cat ${file_replace} | awk ' { print \"'*********** \"\$0\"${postamble}\"; } '",
+    command => "cat ${file_replace} | awk ' { print \"*********** \"\$0\"${postamble}\"; } '",
     logoutput => true,
   }
 }
