@@ -72,6 +72,11 @@ class docsf (
       if ! defined(Package['perl-Crypt-SSLeay']) {
         package { 'perl-Crypt-SSLeay' : ensure => 'present', }
       }
+      if ($::operatingsystemmajrelease >= 7) {
+        if ! defined(Package['perl-LWP-Protocol-https']) {
+          package { 'perl-LWP-Protocol-https' : ensure => 'present', }
+        }
+      }
     }
     ubuntu, debian: {
       if ! defined(Package['libwww-perl']) {
