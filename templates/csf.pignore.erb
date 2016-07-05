@@ -186,6 +186,10 @@ pcmd:/usr/lib/jvm/jre.* /usr/share/puppetdb/puppetdb.jar .* -c /etc/puppetdb/con
 # version control
 exe:/usr/lib/git-core/git
 pexe:/usr/libexec/git-core/git.*
+# RHEL/CentOS 7
+exe:/usr/lib/polkit-1/polkitd
+exe:/usr/sbin/rpcbind
+exe:/usr/bin/dbus-daemon
 
 #
 # Puppetted exclusions
