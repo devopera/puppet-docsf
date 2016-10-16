@@ -47,6 +47,7 @@ class docsf (
   $logscanner = 1,
   $logscanner_interval = 'daily',
   $lf_log_syslog = $docsf::params::lf_log_syslog,
+  $csf_download_url = 'https://download.configserver.com/csf.tgz',
 
   # end of class arguments
   # ----------------------
@@ -91,7 +92,7 @@ class docsf (
   # install configserver firewall
   if $configserver_firewall == 'false' {
     exec { 'download_csf':
-      command => 'wget http://www.configserver.com/free/csf.tgz -O /tmp/csf.tgz',
+      command => "wget $csf_download_url -O /tmp/csf.tgz",
       path  => '/usr/bin',
       creates => '/tmp/csf.tgz',
     }
