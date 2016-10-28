@@ -141,19 +141,6 @@ class docsf (
     }
   }
 
-  ## setup TCP_IN container so docommon can realise all the virtual fireport resources into it
-  #concat{ "${::docsf::params::partial_tcp_in}" :
-  #  owner => root,
-  #  group => root,
-  #  mode  => '0644',
-  #}
-  ## put at least one fragment into file
-  #concat::fragment{ "docsf_partial_tcp_in_firstfrag" :
-  #  target  => $docsf::params::partial_tcp_in,
-  #  content => 'TCP_IN = "',
-  #  order => 0,
-  #}
-
   # configure csf using template
   # everytime, not just during install
   file { 'configure_csf':
@@ -164,15 +151,29 @@ class docsf (
     group => $etcuser,
     notify => [Service['start_csf'], Service['start_lfd']],
   }
-  file { 'configure_csf_allow':
-    path => "/etc/csf/csf.allow",
-    content => template('docsf/csf.allow.erb'),
-    mode => 0600,
+  # create container for csf.allow
+  concat{ "${::docsf::params::filepath_csf_allow}" :
     owner => $etcuser,
     group => $etcuser,
+    mode  => '0600',
+  }
+  concat::fragment{ "docsf_filepath_csf_allow_firstfrag" :
+    target  => $docsf::params::filepath_csf_allow,
+    content => template('docsf/csf.allow.erb'),
+    order => 01,
     notify => [Service['start_csf'], Service['start_lfd']],
     require => [File['configure_csf']],
   }
+  # deprecated in favour of dynamic (concat) fragments
+  #file { 'configure_csf_allow':
+  #  path => "/etc/csf/csf.allow",
+  #  content => template('docsf/csf.allow.erb'),
+  #  mode => 0600,
+  #  owner => $etcuser,
+  #  group => $etcuser,
+  #  notify => [Service['start_csf'], Service['start_lfd']],
+  #  require => [File['configure_csf']],
+  #}
   file { 'configure_csf_ignore':
     path => "/etc/csf/csf.ignore",
     content => template('docsf/csf.ignore.erb'),

@@ -27,5 +27,5 @@ class docsf::preinit (
     content => "\"\n",
     order => 99,
   }
-
+  # csf.allow is handled in init 
 }

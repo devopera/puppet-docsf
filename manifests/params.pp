@@ -13,6 +13,6 @@ class docsf::params {
 
   # use notifier dir as /etc/csf may not exist yet
   $partial_tcp_in = "${tmp_dir}/csf_partial_tcp_in.conf"
-
+  $filepath_csf_allow = "/etc/csf/csf.allow"
 }
 
