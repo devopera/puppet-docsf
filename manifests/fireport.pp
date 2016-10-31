@@ -14,7 +14,9 @@ define docsf::fireport (
   $dport = undef,
   $proto = 'tcp',
   
-)  {
+) {
+
+  include docsf::params
 
   if ($protocol == 'tcp') {
     if ($source == undef) {
@@ -28,7 +30,7 @@ define docsf::fireport (
         }
       }
     } else {
-      if defined(Concat["${::docsf::params::firepath_csf_allow}"]) {
+      if defined(Concat["${::docsf::params::filepath_csf_allow}"]) {
         # if source is defined use csf.allow with named IP and port
         concat::fragment{ "docsf_fireport_srcip_${source}_dpt_${port}" :
           target  => $docsf::params::filepath_csf_allow,
