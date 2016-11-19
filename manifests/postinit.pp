@@ -30,5 +30,11 @@ class docsf::postinit (
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
     command => "cat /etc/csf/csf.conf | grep '^TCP_IN = ' | awk ' { print \">>>>>>>>>>> \"\$0\"${postamble}\"; } ' && cat ${file_replace} | awk ' { print \"*********** \"\$0\"${postamble}\"; } '",
     logoutput => true,
+  }->
+  # always restart CSF but don't notify service
+  exec { 'docsf_postinit_restart' :
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+    command => 'csf -r',
   }
+
 }
