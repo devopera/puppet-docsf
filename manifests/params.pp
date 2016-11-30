@@ -12,20 +12,20 @@ class docsf::params {
         '6': {
           $lf_log_syslog = '/var/log/syslog'
           $service_path = '/etc/init:/etc/init.d'
-          $service_provider = 'upstart'
+          $service_provider = undef
           $systemctl = ''
         }
       }
     }
     ubuntu, debian: {
       case $::operatingsystemmajrelease {
-        '14.04', default: {
+        '16.04', default: {
           $lf_log_syslog = '/var/log/syslog'
           $service_path = '/etc/init:/etc/init.d:/usr/lib/systemd/system'
           $service_provider = 'systemd'
           $systemctl = '/bin/systemctl'
         }
-        '12.04','13.04': {
+        '12.04','13.04','14.04','15.04': {
           $lf_log_syslog = '/var/log/syslog'
           $service_path = '/etc/init:/etc/init.d'
           $service_provider = 'upstart'
