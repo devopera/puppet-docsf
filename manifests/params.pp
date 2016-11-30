@@ -2,10 +2,36 @@ class docsf::params {
 
   case $operatingsystem {
     centos, redhat, fedora: {
-      $lf_log_syslog = '/var/log/messages'
+      case $::operatingsystemmajrelease {
+        '7', default: {
+          $lf_log_syslog = '/var/log/syslog'
+          $service_path = '/etc/init:/etc/init.d:/usr/lib/systemd/system'
+          $service_provider = 'systemd'
+          $systemctl = '/bin/systemctl'
+        }
+        '6': {
+          $lf_log_syslog = '/var/log/syslog'
+          $service_path = '/etc/init:/etc/init.d'
+          $service_provider = 'upstart'
+          $systemctl = ''
+        }
+      }
     }
     ubuntu, debian: {
-      $lf_log_syslog = '/var/log/syslog'
+      case $::operatingsystemmajrelease {
+        '14.04', default: {
+          $lf_log_syslog = '/var/log/syslog'
+          $service_path = '/etc/init:/etc/init.d:/usr/lib/systemd/system'
+          $service_provider = 'systemd'
+          $systemctl = '/bin/systemctl'
+        }
+        '12.04','13.04': {
+          $lf_log_syslog = '/var/log/syslog'
+          $service_path = '/etc/init:/etc/init.d'
+          $service_provider = 'upstart'
+          $systemctl = ''
+        }
+      }
     }
   }
 

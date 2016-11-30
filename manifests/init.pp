@@ -49,6 +49,10 @@ class docsf (
   $lf_log_syslog = $docsf::params::lf_log_syslog,
   $csf_download_url = 'https://download.configserver.com/csf.tgz',
 
+  $service_path = $docsf::params::service_path,
+  $service_provider = $docsf::params::service_provider,
+  $systemctl = $docsf::params::systemctl,
+
   # end of class arguments
   # ----------------------
   # begin class
@@ -204,11 +208,15 @@ class docsf (
   # startup csf and lfd
   service { 'start_csf':
     name => 'csf',
+    path => $service_path,
+    provider => $service_provider,
     enable => true,
     ensure => running,
   }
   service { 'start_lfd':
     name => 'lfd',
+    path => $service_path,
+    provider => $service_provider,
     enable => true,
     ensure => running,
   }
