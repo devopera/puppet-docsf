@@ -4,13 +4,13 @@ class docsf::params {
     centos, redhat, fedora: {
       case $::operatingsystemmajrelease {
         '7', default: {
-          $lf_log_syslog = '/var/log/syslog'
+          $lf_log_syslog = '/var/log/messages'
           $service_path = '/etc/init:/etc/init.d:/usr/lib/systemd/system'
           $service_provider = 'systemd'
           $systemctl = '/bin/systemctl'
         }
         '6': {
-          $lf_log_syslog = '/var/log/syslog'
+          $lf_log_syslog = '/var/log/messages'
           $service_path = '/etc/init:/etc/init.d'
           $service_provider = undef
           $systemctl = ''
