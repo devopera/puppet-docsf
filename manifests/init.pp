@@ -19,6 +19,7 @@ class docsf (
   $syslog_check = '3600',
   $lf_alert_to = 'admin@example.com',
   $lf_alert_from = "lfd.csf.daemon@${::fqdn}",
+  $auto_updates = '0',
   # deprecated in new version of config file
   # $lf_dshield = '86400',
   # $lf_spamhaus = '86400',
