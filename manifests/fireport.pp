@@ -18,8 +18,8 @@ define docsf::fireport (
 
   include docsf::params
 
-  if ($protocol == 'tcp') {
-    if ($source == undef) {
+  if ($source == undef) {
+    if ($protocol == 'tcp') {
       if defined(Concat["${::docsf::params::partial_tcp_in}"]) {
         # add fragment to target file
         concat::fragment{ "docsf_fireport_dpt_${port}" :
@@ -29,14 +29,25 @@ define docsf::fireport (
           order => $port,
         }
       }
-    } else {
-      if defined(Concat["${::docsf::params::filepath_csf_allow}"]) {
-        # if source is defined use csf.allow with named IP and port
-        concat::fragment{ "docsf_fireport_srcip_${source}_dpt_${port}" :
-          target  => $docsf::params::filepath_csf_allow,
-          content => "${proto}|in|d=${port}|s=${source}\n",
-          order => 100,
+    }
+    if ($protocol == 'udp') {
+      if defined(Concat["${::docsf::params::partial_udp_in}"]) {
+        # add fragment to target file
+        concat::fragment{ "docsf_fireport_dpt_udp_${port}" :
+          target  => $docsf::params::partial_udp_in,
+          content => "${port},",
+          # use port number for ordering, so ports appear in numerical order
+          order => $port,
         }
+      }
+    }
+  } else {
+    if defined(Concat["${::docsf::params::filepath_csf_allow}"]) {
+      # if source is defined use csf.allow with named IP and port
+      concat::fragment{ "docsf_fireport_srcip_${source}_dpt_${port}" :
+        target  => $docsf::params::filepath_csf_allow,
+        content => "${proto}|in|d=${port}|s=${source}\n",
+        order => 100,
       }
     }
   }

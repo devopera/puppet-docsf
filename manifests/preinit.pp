@@ -16,6 +16,11 @@ class docsf::preinit (
     group => root,
     mode  => '0644',
   }
+  concat{ "${::docsf::params::partial_udp_in}" :
+    owner => root,
+    group => root,
+    mode  => '0644',
+  }
   # put at least one fragment into file
   concat::fragment{ "docsf_partial_tcp_in_firstfrag" :
     target  => $docsf::params::partial_tcp_in,
@@ -27,5 +32,15 @@ class docsf::preinit (
     content => "\"\n",
     order => 99,
   }
-  # csf.allow is handled in init 
+  concat::fragment{ "docsf_partial_udp_in_firstfrag" :
+    target  => $docsf::params::partial_udp_in,
+    content => 'UDP_IN = "',
+    order => 0,
+  }
+  concat::fragment{ "docsf_partial_udp_in_finalfrag" :
+    target  => $docsf::params::partial_udp_in,
+    content => "\"\n",
+    order => 99,
+  }
+
 }
