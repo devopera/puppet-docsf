@@ -19,10 +19,10 @@ define docsf::fireport (
   include docsf::params
 
   if ($source == undef) {
-    if ($protocol == 'tcp') {
+    if ($protocol =~ /tcp/) {
       if defined(Concat["${::docsf::params::partial_tcp_in}"]) {
         # add fragment to target file
-        concat::fragment{ "docsf_fireport_dpt_${port}" :
+        concat::fragment{ "docsf_fireport_dpt_tcp_${port}" :
           target  => $docsf::params::partial_tcp_in,
           content => "${port},",
           # use port number for ordering, so ports appear in numerical order
@@ -30,7 +30,7 @@ define docsf::fireport (
         }
       }
     }
-    if ($protocol == 'udp') {
+    if ($protocol =~ /udp/) {
       if defined(Concat["${::docsf::params::partial_udp_in}"]) {
         # add fragment to target file
         concat::fragment{ "docsf_fireport_dpt_udp_${port}" :
