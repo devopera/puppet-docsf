@@ -32,11 +32,11 @@ class docsf (
   $csf_pignore = {},
   $csf_fignore = {},
   # concurrent connection limit: Firefox makes up to 15 legit connections, allow 5 max SSH
-  $connlimit = '22;5,80;20',
+  $connlimit = '22;5,80;20,443;20',
   # sequent connection limit: block a certain number of requests within a certain timeframe
   # - block after 10 SSH connections within 1 minute, for 1 minute
-  # - block after 50 HTTP connections in 5 seconds, for 5 seconds
-  $portflood = '22;tcp;10;60,80;tcp;50;5',
+  # - block after 50 HTTP(S) connections in 5 seconds, for 5 seconds
+  $portflood = '22;tcp;10;60,80;tcp;50;5,443;tcp;50;5',
 
   # increase process tracking time from 1800 to 3600 by default
   $pt_limit = '3600',
